@@ -62,6 +62,9 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.keymap.set("i", "aj", "<ESC>", { noremap = true, silent = true, desc = "<ESC>" })
 vim.keymap.set("n", "<leader>nt", ":Neotree<CR>", { noremap = true, silent = true, desc = "Toggle Neotree" })
+
+vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
 --
@@ -135,12 +138,11 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
+    'folke/tokyonight.nvim',
+     config = function()
+        vim.cmd.colorscheme 'tokyonight'
+  end
+
   },
 
   {
