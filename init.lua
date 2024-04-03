@@ -44,6 +44,9 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+ 
+-- imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+--let g:copilot_no_tab_map = v:true
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -220,6 +223,13 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
+
+-- Set tabstop and shiftwidth to 4 spaces
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+
+-- Convert tabs to spaces
+vim.o.expandtab = true
 
 -- Set highlight on search
 vim.o.hlsearch = false
