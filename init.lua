@@ -63,7 +63,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.keymap.set("i", "aj", "<ESC>", { noremap = true, silent = true, desc = "<ESC>" })
+vim.keymap.set("i", "C-c", "<ESC>", { noremap = true, silent = true, desc = "<ESC>" })
 vim.keymap.set("n", "<leader>nt", ":Neotree<CR>", { noremap = true, silent = true, desc = "Toggle Neotree" })
 
 vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
@@ -141,12 +141,17 @@ require('lazy').setup({
   },
 
   {
-  "zootedb0t/citruszest.nvim",
-  lazy = false,
-  priority = 1000,
-
+    "navarasu/onedark.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('onedark').setup {
+        style = 'deep'
+      }
+      require('onedark').load()
+    end,
   },
-
+  
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -225,8 +230,8 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Set tabstop and shiftwidth to 4 spaces
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 
 -- Convert tabs to spaces
 vim.o.expandtab = true
