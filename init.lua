@@ -146,7 +146,8 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       require('onedark').setup {
-        style = 'deep'
+        style = 'deep',
+        transparent = true,
       }
       require('onedark').load()
     end,
