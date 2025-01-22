@@ -140,13 +140,32 @@ require('lazy').setup({
     },
   },
 
+
+  {
+    'DuckyDuckerson/cyberpunk.nvim',
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    opts = {
+      options = {
+        icons_enabled = false,
+        theme = 'cyberpunk',
+        component_separators = '|',
+        section_separators = '',
+      },
+    },
+  },
+
   {
     "navarasu/onedark.nvim",
     lazy = false,
     priority = 1000,
     config = function()
       require('onedark').setup {
-        style = 'deep'
+        style = 'deep',
+        transparent = true,
       }
       require('onedark').load()
     end,
@@ -225,13 +244,16 @@ require('lazy').setup({
     {import = 'custom.plugins',}
 }, {})
 
+vim.cmd('colorscheme cyberpunk')
+-- vim.cmd('colorscheme citruszest')
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
 -- Set tabstop and shiftwidth to 4 spaces
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 
 -- Convert tabs to spaces
 vim.o.expandtab = true
