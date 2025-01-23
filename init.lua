@@ -44,7 +44,7 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
- 
+
 -- imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 --let g:copilot_no_tab_map = v:true
 -- Install package manager
@@ -139,8 +139,6 @@ require('lazy').setup({
       end,
     },
   },
-
-
   {
     'DuckyDuckerson/cyberpunk.nvim',
     lazy = false,
@@ -157,7 +155,6 @@ require('lazy').setup({
       },
     },
   },
-
   {
     "navarasu/onedark.nvim",
     lazy = false,
@@ -170,11 +167,9 @@ require('lazy').setup({
       require('onedark').load()
     end,
   },
-  
+
   {
-    -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
     opts = {
       options = {
         icons_enabled = false,
@@ -186,16 +181,14 @@ require('lazy').setup({
   },
 
   {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+  'lukas-reineke/indent-blankline.nvim',
+  config = function()
+    require'ibl'.setup {
+    indent = { char = '┊' },
+      --show_trailing_blankline_indent = false,
+    }
+  end,
   },
-
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
@@ -245,6 +238,7 @@ require('lazy').setup({
 }, {})
 
 vim.cmd('colorscheme cyberpunk')
+vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
 -- vim.cmd('colorscheme citruszest')
 
 -- [[ Setting options ]]
